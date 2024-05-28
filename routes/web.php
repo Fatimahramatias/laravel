@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\StudentController;
 use App\Models\Student;
@@ -23,5 +24,5 @@ Route::get('admin/dashboard', [DashboardController::class, 'index']);
 //route untuk menampilkan halaman student
 Route::get('/admin/student', [StudentController::class, 'index']);
 
-
-
+//route untuk menampilkan halaman student
+Route::get('/admin/courses', [CoursesController::class, 'index']);
