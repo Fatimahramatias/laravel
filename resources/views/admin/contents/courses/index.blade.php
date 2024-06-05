@@ -14,26 +14,30 @@
   <section class="section">
     <div class="card">
         <div class="card-body">
+          <a href="/admin/courses/create" class="btn btn-primary my-3"> + Courses</a>
             <table class="table">
                 <tr>
                     <th>Id</th>
                     <th>Name</th>
                     <th>Category</th>
                     <th>Desc</th>
-                    <th>Timestamp</th>
                     <th>Action</th>
                 </tr>
                 @foreach ($courses as $cour)
                 <tr>
                     <td>{{ $cour->id }}</td>
-                    <td>{{ $cour->nama }}</td>
+                    <td>{{ $cour->name }}</td>
                     <td>{{ $cour->category}}</td>
                     <td>{{ $cour->desc }}</td>
-                    <td>{{ $cour->timestamp }}</td>
-                    <td>
-                        <a href="#" class="btn btn-warning">Edit</a>
-                        <a href="#" class="btn btn-danger">Hapus</a>
+                    <td class ="d-flex">
+                        <a href="/admin/courses/edit/ {{ $cour->id}}" class="btn btn-warning">Edit</a>
+                        <form action="/admin/courses/delete/{{ $cour->id }}" method="post">
+                          @method('DELETE')
+                          @csrf
+                          <button class="btn btn-danger" type="submit" onclick="return confirm('Apakah Anda Yakin?')">Hapus</button>
+                          </form>
                     </td>
+                   
                 </tr>
                 @endforeach
             </table>

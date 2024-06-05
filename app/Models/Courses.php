@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Courses extends Model
 {
-    use HasFactory;
+    use HasFactory; 
     protected $table = 'courses';
+
+     //mendefinisikan kolom yang boleh diisi
+     protected $fillable = ['id', 'name', 'category', 'desc'];
 }
